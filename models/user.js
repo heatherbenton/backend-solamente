@@ -1,11 +1,8 @@
-// import Mongoose
-const { Schema, model } = require("mongoose");
-
-// import  validator package
-const { isEmail } = require("validator");
-
 // import bcrypt
+const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
+const { isEmail } = require("validator");
+const accountSchema = require("../models/account");
 
 const emailReq = {
 	type: String,
@@ -20,43 +17,19 @@ const passwordReq = {
 	minlength: [8, "Please enter at least 8 characters."],
 };
 
-const historySchema = new Schema(
-	{
-		amount: {
-			type: Number,
-			required: true,
-		},
-	},
-	{ timestamps: true }
-);
-
-const accountSchema = new Schema(
-	{
-		acctName: {
-			type: String,
-			required: true,
-		},
-		balance: {
-			type: Number,
-			required: true,
-		},
-		history: [historySchema],
-	},
-	{ timestamps: true }
-);
-
 const userSchema = new Schema(
 	{
 		email: emailReq,
 		password: passwordReq,
-		accounts: [accountSchema],
-		username: {
+		// accounts: [accountSchema],
+		name: {
 			type: String,
 			required: true,
 		},
 		totalBalance: {
 			type: Number,
 			required: true,
+			default: 0
 		},
 	},
 	{ timestamps: true }

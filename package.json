@@ -7,6 +7,7 @@
     "dev": "nodemon index"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -17,10 +18,12 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.1.4",
     "mongoose": "^5.13.13",
+    "netlify-lambda": "^2.0.15",
     "validator": "^13.7.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "netlify-cli": "^3.10.0"
   },
   "author": "heather.leigh4@gmail.com",
   "license": "MIT",

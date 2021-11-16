@@ -1,26 +1,18 @@
 const { Router } = require("express");
+const { verifyUser } = require("../middlewares/jwt");
 
 const router = Router();
 
 const {
-	signup_get,
 	signup_post,
-	login_get,
 	login_post,
 	logout_get,
-} = require("../models/auth");
-
-// Signup
-router.get("/signup", signup_get);
+} = require("../controllers/auth");
 
 router.post("/signup", signup_post);
 
-// Login
-router.get("/login", login_get);
-
 router.post("/login", login_post);
 
-// Logout
-router.get("/logout", logout_get);
+router.get("/logout", verifyUser, logout_get);
 
 module.exports = router;
